@@ -6,13 +6,13 @@
 /*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:28:32 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/15 17:28:42 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/03/15 20:04:46 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*legge_la_linea(int fd, char *left_line)
+char	*road(int fd, char *left_line)
 {
 	char		*buf;
 	int			number_byte;
@@ -43,10 +43,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	left_line = legge_la_linea(fd, left_line);
+	left_line = road(fd, left_line);
 	if (!left_line)
 		return (NULL);
-	linea = prendi(left_line);
+	linea = take(left_line);
 	left_line = checkpoint(left_line);
 	return (linea);
 }

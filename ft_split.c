@@ -6,7 +6,7 @@
 /*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 16:38:36 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/15 16:59:04 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/03/15 20:05:19 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ char	**ft_split(char *str, char c)
 
 	i = 0;
 	j = 0;
-	l = 0;
+	av = 0;
 	if (!str)
 		return (NULL);
-	*bazar = (char **)malloc(sizeof(char *) * (word_count(str, c) + 1));
+	bazar = (char **)malloc(sizeof(char *) * (word_count(str, c) + 1));
 	if (!bazar)
 		return (NULL);
 	i = jump(i, str, c);

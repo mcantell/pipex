@@ -6,7 +6,7 @@
 /*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:29:35 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/15 17:29:38 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/03/15 20:04:41 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ char	*ft_strjoint(char *left_line, char *buf);
 char	*ft_strachr(char *left_line, int c);
 int		len(char *str);
 char	*get_next_line(int fd);
-char	*read(int fd, char *left_line);
+char	*road(int fd, char *left_line);
 #endif
