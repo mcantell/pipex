@@ -7,31 +7,35 @@ oppure
 < infile cmd 1 | cmd 2 > outfile 
 
 [x] implemetare le nostre funzioni
-[x] implementare get (copia e incolla)
+[x] implementare get 
 [x] farti una tua libreria 
-[ ] farti il Makefile (guardati come farlo in maniera decente)
+[x] farti il Makefile 
 [x] implementare le giuste librerie
 [ ] farti una parte per le utils
 [ ] farti il main che con le dovute accortezze per riprodurre pipex
 [ ] ricardarsi di mettere le giuste cose dentro la nostra funzione main
 (devi mettere argc, argv, ed **envp)
 [ ] creare un infile (file di qualsiasi cosa basta che gli venga passato)
+	*(volendo in teoria posso anche passargli questo)
 
 pipex é letteralmente ricreare la funzione pipex di bash
-lui lavora con un infile passato il primo comando, definito figlio, il secondo comando, definito padre, e l'outfile 
+lui lavora con un infile passato al primo comando, definito figlio (o comunque quello che é),
+	 il secondo comando, definito padre, e l'outfile 
 (l 'outfile viene creato poi durante la correzione ma conviene che per testarlo lo crei pure tu).
-lui prende l'imput dato esegue il primo comando poi lo passa come input al secondo comando che lo lavora pure lui 
+lui prende l'imput dato esegue il primo comando poi lo passa come input al secondo comando che lo lavora 
 e lui passa il tutto poi all' outfile.
 
 Sebra facile ma lui deve ricercarsi il path se é esistente 
-[ ] creazione di una funzione per cercare il path se é esistente (strcmp pper vedere se PATH= esiste)
+[ ] creazione di una funzione per cercare il path se é esistente (strncmp per vedere se PATH= esiste)
 (attenzione a come usi perror... lui lavora direttamente sullo standard error)
-devi fare un bel po' di controlli per eseguire il comando, i processi e  mi sa un po'di roba in piú ancora da vedere
+devi fare un bel po' di controlli per eseguire il comando, controllare i processi 
+mi sa un po'di roba in piú ancora da vedere ma va bene lo stesso
 
-deve funzionare con argc e argv e vede se dentro le doppie virgolette gli passi un solo comando e che se c'é 
-qualcos'altro lui da errore ( "wc -l"	 "cat -e") lui non si deve gestire la pipe ma solo i comandi 
+il main deve funzionare con argc e argv e vede se dentro le doppie virgolette gli passi un solo comando e che se c'é 
+qualcos'altro lui da errore ( "wc -l"	 "cat -e" *) 
+lui non si deve gestire la pipe ma solo i comandi 
 
-{lui scorre ti legge tutto quello che gli passi come stringa e di consequenza ti vede se sono piú comandi e ti dá 
+*{lui scorre ti legge tutto quello che gli passi come stringa e di consequenza ti vede se sono piú comandi e ti dá 
 errore ma noi non lo gestiamo fa tutto il computer... quindi lui se si trova appunto dei comandi li legge come 
 se fossero delle stringhe con comando e argomento e appena hai le doppie virgolette lui legge tutto quello 
 appunto come una stringa ma se ne trova piú di uno da errore}
@@ -39,19 +43,20 @@ appunto come una stringa ma se ne trova piú di uno da errore}
 facciamo prima a fare solo ció che ci viene richiesto dal subject nudo e crudo come sta messo lí senza
 complicarci troppo la vita 
 
-roba da studiare
+[ ] roba da studiare
 
 [ ] execve = (da capire bene il suo funzionamento)
-[ ] pid = (cosa effettivamente fa e cosa funziona, da cercare anche qual é la libreria da importare)
+[ ] pid = (cosa effettivamente fa e come funziona, da cercare anche qual é la libreria da importare)
 		 so che é il process identificator cioé un id che ti identifica il processo
-[ ] waitpid = (in teoria fa una cosa del genere) lui fa sí che aspetti che il processo termini
-[ ] envp = in teoria lui ti trova il comando 
+[ ] waitpid = lui fa sí che aspetti che il processo termini (vedi se c'é altro)
+[ ] envp = lui ti trova il comando (da vedere meglio) 
 [ ] access = lui ti vede se un file é leggibile e scrivibile
-[ ] dup2 = sostituisce il fd dato con quello che invece che gli passi tu
-[ ] fork = (lui ti dovrebbe creare i processi padre figlio)
+[ ] dup2 = sostituisce il file descriptor dato con quello che invece che gli passi tu
+[ ] fork = (lui ti dovrebbe creare i processi padre figlio) ti crea un processo che viene eseguito per primo
+			e poi fa il secondo processo
 
 
-funzioni che servono
+[v] funzioni che servono da ricreare all'esterno
 
 [X] strcmp = ti da la possibilitá di vedere se c´é il path ma lo puoi utilizzare anche in altre funzioni comodamente
 [x] split = che non so per che possa essere utilizzato effettivamente; credo che possa servire per poterti gestire
@@ -61,3 +66,10 @@ funzioni che servono
 [x] strlcpy = lui ti copia bello tranquillo 
 [X] strlen = lunghezza di una stringa
 [x] strjoin = lo uso per prendermi il path per l'eseguibile
+
+[ ]funzioni da creare 
+
+[ ] uno split in una versione piú potente
+[ ] le utils per lo split potente
+[ ] da fillare le diverse utils
+[ ] da fare la parte main
