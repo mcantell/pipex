@@ -7,7 +7,7 @@ oppure
 < infile cmd 1 | cmd 2 > outfile 
 
 [x] implemetare le nostre funzioni
-[ ] implementare get (copia e incolla)
+[x] implementare get (copia e incolla)
 [x] farti una tua libreria 
 [ ] farti il Makefile (guardati come farlo in maniera decente)
 [x] implementare le giuste librerie
