@@ -1,0 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   super_split.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/16 13:09:53 by mcantell          #+#    #+#             */
+/*   Updated: 2024/03/16 15:36:56 by mcantell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pipex.h"
+//ho giá una funzione potentissima di skip quindi mi tengo quella
+//se c'é qualcosa che non va é perche questa parte é differente
+int	super_count(char *str)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	i = jump(0, str, ' ');
+	while (str[i])
+	{
+		if (str[i] == '\'')
+			s_o_c(count, str, i, '\'');
+		else if (str[i] == '\"')
+			s_o_c(count, str, i, '\"');
+		else if (str[i] == ' ')
+		{
+			count++;
+			i = jump(i, str, ' ');
+		}
+		else
+			i++;
+	}
+	return (count);
+}
+
+char	**su_split(char *str)
+{
+	char	**su;
+	int		i;
+	int		j;
+
+	su = (char **)malloc(sizeof(char *) * (super_count(str) + 1));
+	donkye(su);
+	j = 0;
+	i = jump(0, str, ' ');
+	while (super_count(str) != j)
+	{
+		if (str[i] == '\'')
+			su[j] = string(i, str, '\'');
+		else if (str[i] && str[i] != '\"')
+			su[j] = string(i, str, '\"');
+		else if (str[i] && str[i] != ' ')
+			su[j] = mini_string(i, str);
+		else
+			i++;
+		i = jump(i, str, ' ');
+		j++;
+	}
+	su[j] = NULL;
+	return (su);
+}

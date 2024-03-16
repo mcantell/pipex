@@ -18,7 +18,9 @@ oppure
 [ ] creare un infile (file di qualsiasi cosa basta che gli venga passato)
 	*(volendo in teoria posso anche passargli questo)
 
-pipex é letteralmente ricreare la funzione pipex di bash
+pipex é letteralmente ricreare la funzione pipex di bash e come tale deve lavorare e dare dei risultati che 
+lavorano direttamente su o un'outfile se  va tutto a cbuon fine o sennó sulla bash e in base ai casi 
+vuol dire che ti dia dei messaggi di errore direttamente sullo standard error
 lui lavora con un infile passato al primo comando, definito figlio (o comunque quello che é),
 	 il secondo comando, definito padre, e l'outfile 
 (l 'outfile viene creato poi durante la correzione ma conviene che per testarlo lo crei pure tu).
@@ -45,6 +47,7 @@ complicarci troppo la vita
 
 [ ] roba da studiare
 
+[x] perror = ti printa nello stderr(standard error) una frase di errore 
 [ ] execve = (da capire bene il suo funzionamento)
 [ ] pid = (cosa effettivamente fa e come funziona, da cercare anche qual é la libreria da importare)
 		 so che é il process identificator cioé un id che ti identifica il processo
@@ -54,13 +57,16 @@ complicarci troppo la vita
 [ ] dup2 = sostituisce il file descriptor dato con quello che invece che gli passi tu
 [ ] fork = (lui ti dovrebbe creare i processi padre figlio) ti crea un processo che viene eseguito per primo
 			e poi fa il secondo processo
-
+[ ] exit = ti esce dal programma e ti restituisce un valore al sistema operativo e tutto ció 
+			che é allocato dinamicamente viene freeato. come da linguaggio di programmazione 
+			metto exit(-1) con il -1 all'interno per indicare che c'é stato un errore 
 
 [v] funzioni che servono da ricreare all'esterno
 
-[X] strcmp = ti da la possibilitá di vedere se c´é il path ma lo puoi utilizzare anche in altre funzioni comodamente
-[x] split = che non so per che possa essere utilizzato effettivamente; credo che possa servire per poterti gestire
-        	la linea di comandi
+[X] strcmp = ti da la possibilitá di vedere se c´é il path ma lo puoi utilizzare anche 
+			in altre funzioni comodamente
+[x] split = che non so per che possa essere utilizzato effettivamente;
+[x] split potente = é effettivamente uno split che lavora in modo piú consono
 [x] strnstr = lui ti cerca la prima occorrenza di quel carattere entro n caratteri
 [x] substr = ti prende una sottostringa, ti alloca memoria e te la copia
 [x] strlcpy = lui ti copia bello tranquillo 

@@ -6,7 +6,7 @@
 /*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:45:29 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/15 20:08:22 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:27:28 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,9 @@ int		*ft_strcmp(char *s1, char *s2);
 char	*ft_strjoin(char *s, char *s2);
 char	*ft_strlcpy(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+int		super_count(char *str);
+int		jump(int i, char *str, char c);
+void	s_o_c(int count, char *str, int i, char c);
+void	donkye(char **str);
+char	*string(int i, char *str, char c);
 #endif
