@@ -51,3 +51,6 @@ char	*name(char *comand, char *path)
 	perror("command not found");
 	exit(-1);
 }
+
+//adesso serve qualcosa per aprire e leggere lo standard imput
+//quindi il file test.txt com standard imput

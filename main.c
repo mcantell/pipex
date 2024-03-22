@@ -25,6 +25,8 @@ void	dwarf(char *comand, char *path)
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
 		execve(name(comand, path), su_split(comand), NULL);
+		perror("command error");
+		exit(-1);
 	}
 }
 
@@ -37,4 +39,3 @@ int	main(int ac, char **av, char **envp)
 	write (1, "not enough arguments", 20);
 	return (0);
 }
-vfhgc vhmvgv bkj.vkyjhbjhvbkjbjhlvb.hjkgfcytkngblmkyujnluihnvurtbfjbvdfghgnmbkj
