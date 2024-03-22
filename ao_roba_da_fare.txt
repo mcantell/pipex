@@ -15,7 +15,7 @@ oppure
 [ ] farti il main che con le dovute accortezze per riprodurre pipex
 [ ] ricardarsi di mettere le giuste cose dentro la nostra funzione main
 (devi mettere argc, argv, ed **envp)
-[ ] creare un infile (file di qualsiasi cosa basta che gli venga passato)
+[*x] creare un infile (file di qualsiasi cosa basta che gli venga passato)
 	*(volendo in teoria posso anche passargli questo)
 
 pipex é letteralmente ricreare la funzione pipex di bash e come tale deve lavorare e dare dei risultati che 
@@ -45,21 +45,39 @@ appunto come una stringa ma se ne trova piú di uno da errore}
 facciamo prima a fare solo ció che ci viene richiesto dal subject nudo e crudo come sta messo lí senza
 complicarci troppo la vita 
 
-[ ] roba da studiare
+[v] roba da studiare
 
 [x] perror = ti printa nello stderr(standard error) una frase di errore 
-[ ] execve = (da capire bene il suo funzionamento)
-[ ] pid = (cosa effettivamente fa e come funziona, da cercare anche qual é la libreria da importare)
-		 so che é il process identificator cioé un id che ti identifica il processo
-[ ] waitpid = lui fa sí che aspetti che il processo termini (vedi se c'é altro)
-[ ] envp = lui ti trova il comando (da vedere meglio) 
-[ ] access = lui ti vede se un file é leggibile e scrivibile
-[ ] dup2 = sostituisce il file descriptor dato con quello che invece che gli passi tu
-[ ] fork = (lui ti dovrebbe creare i processi padre figlio) ti crea un processo che viene eseguito per primo
-			e poi fa il secondo processo
-[ ] exit = ti esce dal programma e ti restituisce un valore al sistema operativo e tutto ció 
+[x] execve = esegue il file puntato da filename, cioé esegue un processo all'interno di un 
+			programma. 
+[x] processo = ogni singolo programma in esecuzione
+[x] pid = é il process identificator cioé un id che ti identifica il processo ed é un numero
+			intero che identifica il processo. serve soprattuto per poetr o far comunicare piú
+			processi oppure per poter sostituirne uno per un altro.
+			la libreria é unistd.h
+[x] waitpid = lui fa sí che aspetti che il processo termini. in generale fa si che il processo 
+				apetti che quello figlio smetta di lavorare oppure si traformi
+				la libreria é sys\wait.h
+[x] envp = é il terxzo elemento che si puó usare in un main. é un array di stringhe
+			che rappresenta l'ambiente sdi esecuzione del programma.
+[x] access = lui ti vede se un file é leggibile, eseguibile, se é scrivibile e se esiste
+				se non esiste ti ritorna -1.sennó 0
+				la libreria é unistd.h.
+[x] dup2 = sostituisce il file descriptor dato con quello che invece che gli passi tu. 
+			//in generale tu lo usi pure per intercambiare tra i due o piu, é vero che lo 
+			sostituisce ma quel processo lo puoi anche richiamare in seguito
+[x] fork = ti crea un processo che viene eseguito per primo e poi fa il secondo processo.
+			 ti crea un processo chiamato figlio che é la copia del processo attuale 
+			  che puó lavorare anche in maniera indipendente dal padre.
+			  il pid passato al figlio sará zero per il processo figlio mentre al 
+			 padre egli avrá il suo pid
+[x] exit = ti esce dal programma e ti restituisce un valore al sistema operativo e tutto ció 
 			che é allocato dinamicamente viene freeato. come da linguaggio di programmazione 
 			metto exit(-1) con il -1 all'interno per indicare che c'é stato un errore 
+			la libreria é unistd.h oppure stdlib.h
+[x] unlink = serve ad eliminare un fuile che gli passi con il suo path e quindi libera anche 
+			lo spazio occupato da ció
+STDOUT_FILENO = stiamo dicendo di fare riferimendo al file descriptor dello standar output
 
 [v] funzioni che servono da ricreare all'esterno
 
@@ -75,7 +93,7 @@ complicarci troppo la vita
 
 [ ]funzioni da creare 
 
-[ ] uno split in una versione piú potente
-[ ] le utils per lo split potente
+[x] uno split in una versione piú potente
+[x] le utils per lo split potente
 [ ] da fillare le diverse utils
 [ ] da fare la parte main
