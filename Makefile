@@ -19,10 +19,7 @@ SRC =	corrupt_cop.c ft_split.c ft_strcmp.c ft_strjoin.c ft_strlcpy.c\
 
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME) 
+ 
 
 OBJ = $(SRC:.c=.o)
 
