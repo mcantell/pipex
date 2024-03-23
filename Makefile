@@ -10,21 +10,29 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pipex
-NAMEBONUS = pipex_bonus
+NAME = pipex.a
 CFLAGS = -Wall -Werror -Wextra
 
-SRC =	get_next_line.c get_next_line_utils.c ft_substr.c ft_strlen.c\
-		ft_strnstr.c ft_strlcpy.c ft_strjoin.c ft_split.c main.c\
+SRC =	corrupt_cop.c ft_split.c ft_strcmp.c ft_strjoin.c ft_strlcpy.c\
+		ft_strlen.c ft_strnstr.c ft_substr.c \
+		main.c super_split_utils.c super_split.c utils.c\
 
-OBJ = $(SRC: .c=.o)
+%.o: %.c
+	gcc $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME) 
+
+OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ)
 
-clear:
+all: $(NAME)
+
+
+clean:
 	rm -f $(OBJ)
 
 fclean: clean
@@ -32,9 +40,5 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(OBJ)
-	gcc -o $(NAME) $(OBJ)
 	
-%.o: %.c
-	gcc $(CFLAGS) -c $< -o $@
 .PHONY: all, clean, fclean, re

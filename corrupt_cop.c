@@ -40,7 +40,7 @@ void	sergent(int *fd, pid_t *pid)
 //metto 0777 perche su sistemi linux mac i permessi lavorano su un sistema
 //ottale (in base 8, quindi da 0 a 7) e facendo cosi specifichi 
 //che tutti possano avere tutti i peressi per poter lavorare sul file
-int	in_out(char *infile, char *outfile)
+int	in_out(char *outfile)
 {
 	int	fd;
 
@@ -64,4 +64,5 @@ int	in(char *infile)
 		perror ("infile error");
 		exit(-1);
 	}
+	return (fd);
 }

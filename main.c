@@ -45,11 +45,11 @@ int	main(int ac, char **av, char **envp)
 	i = 1;
 	if (ac == 5)
 	{
-		in_out(av[i], av[ac - 1]);
+		in_out(av[ac - 1]);
 		dup2(in(av[i]), STDIN_FILENO);
 		i = 2;
 		dwarf(av[i++], path(envp));
-		dup2(in_out(av[i], av[ac - 1]), STDOUT_FILENO);
+		dup2(in_out(av[ac - 1]), STDOUT_FILENO);
 		comand = av[3];
 		execve(name(comand, path(envp)), su_split(comand), NULL);
 		perror("last command error");

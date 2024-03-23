@@ -18,11 +18,10 @@
 # include <fcntl.h>
 # include <string.h>
 # include <sys/wait.h>
-# include "get_next_line.h"
 
 char	*ft_strnstr(const char *s1, const char *s2, int n);
 int		ft_strlen(const char *s);
-int		*ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
 char	*ft_strjoin(char *s, char *s2);
 char	*ft_strlcpy(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -36,5 +35,9 @@ char	**su_split(char *str);
 void	sergent(int *fd, pid_t *pid);
 char	**ft_split(char *str, char c);
 char	*name(char *comand, char *path);
-int		in_out(char *infile, char *outfile);
+int		in_out(char *outfile);
+char	*path(char **envp);
+void	dwarf(char *comand, char *path);
+int		in(char *infile);
+
 #endif

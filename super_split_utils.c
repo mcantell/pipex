@@ -33,20 +33,20 @@ void	s_o_c(int *count, char *str, int *i, char c)
 //qui mi deve prendere quello che c'é trá gli apici e se non 
 char	*string(int *i, char *str, char c)
 {
-	int	c;
+	int	f;
 
 	(*i)++;
-	c = *i;
+	f = *i;
 	while (str[*i] && str[*i] != c)
 		(*i)++;
 	if (str[*i] == '\0')
-		return (ft_substr(str, c - 1, *i - c + 1));
+		return (ft_substr(str, f - 1, *i - f + 1));
 	else
-		return (ft_substr(str, c, *i - c));
+		return (ft_substr(str, f, *i - f));
 }
 //mi faccio una funzione per gli spazi che anche quelli non devono mancare
 
-char	*mini_srtring(int *i, char *str)
+char	*mini_string(int *i, char *str)
 {
 	int	b;
 
