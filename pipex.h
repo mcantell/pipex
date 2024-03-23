@@ -36,4 +36,5 @@ char	**su_split(char *str);
 void	sergent(int *fd, pid_t *pid);
 char	**ft_split(char *str, char c);
 char	*name(char *comand, char *path);
+int		in_out(char *infile, char *outfile);
 #endif

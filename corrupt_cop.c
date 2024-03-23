@@ -36,3 +36,32 @@ void	sergent(int *fd, pid_t *pid)
 		exit(-1);
 	}
 }
+
+//metto 0777 perche su sistemi linux mac i permessi lavorano su un sistema
+//ottale (in base 8, quindi da 0 a 7) e facendo cosi specifichi 
+//che tutti possano avere tutti i peressi per poter lavorare sul file
+int	in_out(char *infile, char *outfile)
+{
+	int	fd;
+
+	fd = open(outfile, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	if (fd == -1)
+	{
+		perror("error open file");
+		exit(-1);
+	}
+	return (fd);
+}
+
+//adesso facciamo un controllo solo per l'infile
+int	in(char *infile)
+{
+	int	fd;
+
+	fd = open(infile, O_RDONLY);
+	if (fd == -1)
+	{
+		perror ("infile error");
+		exit(-1);
+	}
+}

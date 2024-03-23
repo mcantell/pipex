@@ -28,7 +28,7 @@ lui prende l'imput dato esegue il primo comando poi lo passa come input al secon
 e lui passa il tutto poi all' outfile.
 
 Sebra facile ma lui deve ricercarsi il path se é esistente 
-[ ] creazione di una funzione per cercare il path se é esistente (strncmp per vedere se PATH= esiste)
+[x] creazione di una funzione per cercare il path se é esistente (strncmp per vedere se PATH= esiste)
 (attenzione a come usi perror... lui lavora direttamente sullo standard error)
 devi fare un bel po' di controlli per eseguire il comando, controllare i processi 
 mi sa un po'di roba in piú ancora da vedere ma va bene lo stesso
@@ -77,6 +77,15 @@ complicarci troppo la vita
 			la libreria é unistd.h oppure stdlib.h
 [x] unlink = serve ad eliminare un fuile che gli passi con il suo path e quindi libera anche 
 			lo spazio occupato da ció
+[x] open = hai il nome del file, le flag e la modalita' di accesso
+			le flag sono:O_RDONLY lui ti apre il file in lettura;
+			O_WRONLY apre solo per la scrittura
+			O_RDWR per fare sia scrittura che lettura
+			O_CREAT se non esiste il file lo crea
+			O_EXCL se il file e' gia' creato ti ritora un errore
+			O_TRUNC un file esistente verra' troncato
+			O_APPEND lui ti pare il file e ti appende le modifiche
+			le altre non mi pare possano servire
 STDOUT_FILENO = stiamo dicendo di fare riferimendo al file descriptor dello standar output
 
 [v] funzioni che servono da ricreare all'esterno
