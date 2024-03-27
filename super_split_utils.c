@@ -50,7 +50,6 @@ char	*mini_string(int *i, char *str)
 {
 	int	b;
 
-	(*i)++;
 	b = *i;
 	while (str[*i] && str[*i] != ' ')
 		(*i)++;

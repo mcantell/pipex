@@ -11,9 +11,9 @@ oppure
 [x] farti una tua libreria 
 [x] farti il Makefile 
 [x] implementare le giuste librerie
-[ ] farti una parte per le utils
-[ ] farti il main che con le dovute accortezze per riprodurre pipex
-[ ] ricardarsi di mettere le giuste cose dentro la nostra funzione main
+[x] farti una parte per le utils
+[x] farti il main che con le dovute accortezze per riprodurre pipex
+[x] ricardarsi di mettere le giuste cose dentro la nostra funzione main
 (devi mettere argc, argv, ed **envp)
 [*x] creare un infile (file di qualsiasi cosa basta che gli venga passato)
 	*(volendo in teoria posso anche passargli questo)
@@ -100,9 +100,9 @@ STDOUT_FILENO = stiamo dicendo di fare riferimendo al file descriptor dello stan
 [X] strlen = lunghezza di una stringa
 [x] strjoin = lo uso per prendermi il path per l'eseguibile
 
-[ ]funzioni da creare 
+[x]funzioni da creare 
 
 [x] uno split in una versione piú potente
 [x] le utils per lo split potente
-[ ] da fillare le diverse utils
-[ ] da fare la parte main
+[x] da fillare le diverse utils
+[x] da fare la parte main

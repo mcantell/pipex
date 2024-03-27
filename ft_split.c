@@ -5,66 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 16:38:36 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/15 20:05:19 by mcantell         ###   ########.fr       */
+/*   Created: 2024/03/27 18:36:21 by mcantell          #+#    #+#             */
+/*   Updated: 2024/03/27 18:36:24 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	word_count(char *str, char c)
+static int	ft_count(const char *str, char c)
 {
-	int	count;
-
-	count = 0;
-	while (*str == c && *str)
-		str++;
-	while (*str)
-	{
-		if (*str != c)
-		{
-			count++;
-			while (*str && *str != c)
-				str++;
-		}
-		else
-			str++;
-	}
-	return (count);
-}
-
-int	jump(int i, char *str, char c)
-{
-	while (*str == c)
-		i++;
-	return (i);
-}
-
-char	**ft_split(char *str, char c)
-{
-	int			i;
-	int			j;
-	char		**bazar;
-	int			av;
+	size_t	i;
+	size_t	word;
 
 	i = 0;
-	j = 0;
-	av = 0;
+	word = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != c)
+		{
+			word++;
+			while (str[i] != c && str[i] != '\0')
+				i++;
+		}
+		else
+			i++;
+	}
+	return (word);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+	size_t	i;
+	size_t	f;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	str = malloc(sizeof(char *) * (ft_count((char *)s, c) + 1));
 	if (!str)
 		return (NULL);
-	bazar = (char **)malloc(sizeof(char *) * (word_count(str, c) + 1));
-	if (!bazar)
-		return (NULL);
-	i = jump(i, str, c);
-	while (str[i])
+	while (*s)
 	{
-		j = i;
-		while (str[i] > 32)
+		if (*s != c)
+		{
+			f = 1;
+			while (*s && *s != c && f++)
+				s++;
+			str[i] = ft_substr(s - f + 1, 0, f - 1);
 			i++;
-		bazar[av] = ft_substr(str, j, i - j);
-		i = jump(i, str, c);
-		av++;
+		}
+		else
+			s++;
 	}
-	bazar[av] = NULL;
-	return (bazar);
+	str[i] = (NULL);
+	return (str);
 }

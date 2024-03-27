@@ -19,7 +19,7 @@ char	*path(char **envp)
 	i = 0;
 	while (envp[i])
 	{
-		if (ft_strcmp(envp[i], "PATH=") == 0)
+		if (strncmp(envp[i], "PATH=", 5) == 0)
 			return (envp[i]);
 		i++;
 	}
@@ -40,11 +40,11 @@ char	*name(char *comand, char *path)
 	int		i;
 
 	c = ft_split((char *)comand, ' ');
-	trace = ft_split((char *)path, ':');
+	trace = ft_split((char *)path + 5, ':');
 	i = 0;
 	while (trace[i] != NULL)
 	{
-		if (access(ft_strjoin(ft_strjoin(trace[i], "/"), c[0]), X_OK))
+		if (!(access(ft_strjoin(ft_strjoin(trace[i], "/"), c[0]), R_OK)))
 			return (ft_strjoin(ft_strjoin(trace[i], "/"), c[0]));
 		i++;
 	}

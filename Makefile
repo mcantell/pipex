@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pipex.a
+NAME = pipex
 CFLAGS = -Wall -Werror -Wextra
 
 SRC =	corrupt_cop.c ft_split.c ft_strcmp.c ft_strjoin.c ft_strlcpy.c\
 		ft_strlen.c ft_strnstr.c ft_substr.c \
-		main.c super_split_utils.c super_split.c utils.c\
+		main.c super_split_utils.c super_split.c utils.c jump.c\
 
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@

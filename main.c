@@ -55,6 +55,6 @@ int	main(int ac, char **av, char **envp)
 		perror("last command error");
 		exit(-1);
 	}
-	write (1, "not enough arguments", 20);
+	write (1, "arguments error", 15);
 	return (0);
 }

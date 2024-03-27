@@ -33,7 +33,7 @@ char	*string(int *i, char *str, char c);
 char	*mini_string(int *i, char *str);
 char	**su_split(char *str);
 void	sergent(int *fd, pid_t *pid);
-char	**ft_split(char *str, char c);
+char	**ft_split(char const *s, char c);
 char	*name(char *comand, char *path);
 int		in_out(char *outfile);
 char	*path(char **envp);

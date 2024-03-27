@@ -30,10 +30,11 @@ int	super_count(char *str)
 			s_o_c(&count, str, &i, '\'');
 		else if (str[i] == '\"')
 			s_o_c(&count, str, &i, '\"');
-		else if (str[i] == ' ')
+		else if (str[i] != ' ')
 		{
 			count++;
-			i = jump(i, str, ' ');
+			while (str[i] != '\0' && str[i] != ' ')
+				i++;
 		}
 		else
 			i++;
@@ -55,9 +56,9 @@ char	**su_split(char *str)
 	{
 		if (str[i] == '\'')
 			su[j] = string(&i, str, '\'');
-		else if (str[i] && str[i] != '\"')
+		else if (str[i] == '\"')
 			su[j] = string(&i, str, '\"');
-		else if (str[i] && str[i] != ' ')
+		else if (str[i] != ' ')
 			su[j] = mini_string(&i, str);
 		else
 			i++;
