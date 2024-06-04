@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corrupt_cop.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 14:51:03 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/21 17:19:33 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:17:19 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sergent(int *fd, pid_t *pid)
 }
 
 //metto 0777 perche su sistemi linux mac i permessi lavorano su un sistema
-//ottale (in base 8, quindi da 0 a 7) e facendo cosi specifichi 
+//ottale (in base 8, quindi da 0 a 7) e facendo cosi specifichi
 //che tutti possano avere tutti i peressi per poter lavorare sul file
 int	in_out(char *outfile)
 {

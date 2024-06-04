@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 20:09:08 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/22 11:29:09 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:43:02 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*path(char **envp)
 	perror("path not found");
 	exit(-1);
 }
-//qui invece ti vaui a cercare il comando tra i vari path 
+//qui invece ti vaui a cercare il comando tra i vari path
 //ti fai uno strjoin nello strjoin cosí effettivamente ti cerchi e trovi
 //quasi con un brute force se esiste e con access come funzione che ti vede
 //se é eseguibile
@@ -38,19 +38,24 @@ char	*name(char *comand, char *path)
 	char	**c;
 	char	**trace;
 	int		i;
+	char	*strj;
 
 	c = ft_split((char *)comand, ' ');
 	trace = ft_split((char *)path + 5, ':');
 	i = 0;
 	while (trace[i] != NULL)
 	{
-		if (!(access(ft_strjoin(ft_strjoin(trace[i], "/"), c[0]), R_OK)))
-			return (ft_strjoin(ft_strjoin(trace[i], "/"), c[0]));
+		strj = strjoin2(ft_strjoin(trace[i], "/"), c[0]);
+		if (!(access(strj, R_OK)))
+		{
+			ft_free (c);
+			ft_free (trace);
+			return (strj);
+		}
 		i++;
+		free (strj);
 	}
-	perror("command not found");
-	exit(-1);
+	ft_free (c);
+	ft_free (trace);
+	return (comand);
 }
-
-//adesso serve qualcosa per aprire e leggere lo standard imput
-//quindi il file test.txt com standard imput

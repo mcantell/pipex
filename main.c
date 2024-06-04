@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 20:07:48 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/22 11:31:10 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:45:24 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,41 @@ void	dwarf(char *comand, char *path)
 {
 	int		fd[2];
 	pid_t	pid;
+	char	**stri;
 
 	sergent(fd, &pid);
 	if (pid == 0)
 	{
+		stri = su_split(comand);
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
-		execve(name(comand, path), su_split(comand), NULL);
+		execve(name(comand, path), stri, NULL);
+		ft_free (stri);
+		perror("command error");
+		exit(-1);
+	}
+	else
+	{
+		close(fd[1]);
+		dup2(fd[0], STDIN_FILENO);
+		waitpid(pid, NULL, 0);
+	}
+}
+
+static void	father(char *comand, char *path)
+{
+	int		fd[2];
+	pid_t	pid;
+	char	**stri;
+
+	sergent(fd, &pid);
+	if (pid == 0)
+	{
+		stri = su_split(comand);
+		close(fd[0]);
+		dup2(fd[1], STDOUT_FILENO);
+		execve(name(comand, path), stri, NULL);
+		ft_free (stri);
 		perror("command error");
 		exit(-1);
 	}
@@ -51,9 +79,7 @@ int	main(int ac, char **av, char **envp)
 		dwarf(av[i++], path(envp));
 		dup2(in_out(av[ac - 1]), STDOUT_FILENO);
 		comand = av[3];
-		execve(name(comand, path(envp)), su_split(comand), NULL);
-		perror("last command error");
-		exit(-1);
+		father(comand, path(envp));
 	}
 	write (1, "arguments error", 15);
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:45:29 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/22 11:29:15 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:30:48 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int		in_out(char *outfile);
 char	*path(char **envp);
 void	dwarf(char *comand, char *path);
 int		in(char *infile);
-
+char	*strjoin2(char *s, char *s2);
+void	ft_free(char **str);
 #endif
